@@ -1,0 +1,33 @@
+{
+  "variables": {
+    "api_token": "",
+    "base_image": "ubuntu-16-04-x64",
+    "image_size": "512mb"
+  },
+  "builders": [
+    {
+      "type": "digitalocean",
+      "api_token": "{{user `api_token`}}",
+      "image": "{{user `base_image`}}",
+      "region": "nyc1",
+      "size": "{{user `image_size`}}",
+      "droplet_name": "amviar-indexador",
+      "snapshot_name": "amviar-indexador-{{ timestamp }}",
+      "ssh_username": "root"
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "inline": [
+        "sudo apt-get -y install curl"
+      ]
+    },
+    {
+      "type": "chef-solo",
+      "cookbook_paths": ["cookbooks", "site-cookbooks"],
+      "run_list": ["indexador"],
+      "install_command" : "curl -LO https://www.opscode.com/chef/install.sh && sudo bash ./install.sh -v 12.9 && rm install.sh"
+    }
+  ]
+}
