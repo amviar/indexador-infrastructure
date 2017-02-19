@@ -1,0 +1,10 @@
+name             'indexador'
+maintainer       'Diego Marcet'
+maintainer_email 'anero79@gmail.com'
+description      'Infraestructura para Indexador y servicios relacionados'
+long_description  'Infraestructura para Indexador y servicios relacionados'
+version          '0.0.1'
+
+depends 'user'
+depends 'ssh'
+depends 'nginx'

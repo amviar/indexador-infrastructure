@@ -1,0 +1,5 @@
+include_recipe 'indexador::package_management'
+include_recipe 'indexador::authorization'
+include_recipe 'indexador::iptables'
+include_recipe 'indexador::nginx'
+include_recipe 'indexador::mongodb'

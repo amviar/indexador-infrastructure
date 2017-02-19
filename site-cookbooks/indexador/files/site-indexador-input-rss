@@ -1,0 +1,25 @@
+server {
+  listen 80;
+  server_name {{hostname_indexador_input_rss}};
+
+# TODO: Descomentar para forzar HTTPS
+# return 301 https://$host$request_uri;
+
+# TODO: Borrar cuando forcemos HTTPS
+  root /srv/indexador-input-rss/public;
+  passenger_enabled on;
+  passenger_user ruby;
+}
+
+# server {
+#   listen 443;
+#
+#   ssl    on;
+#   server_name ;
+#   ssl_certificate ;
+#   ssl_certificate_key ;
+#
+#   root /srv/indexador-input-rss/public;
+#   passenger_enabled on;
+#   passenger_user ruby;
+# }
